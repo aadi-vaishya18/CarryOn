@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CarryOn — Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+            <img class="menu" src="assets/menu-burger.png" alt="" />
+        </button>
+
+        <a class="brand" href="index.html" aria-label="CarryOn home">
+            <span class="brand-name">CarryOn</span>
+            <span class="brand-tagline">Bags for every journey</span>
+        </a>
+
+        <nav class="top-nav" aria-label="Categories">
+            <a class="nav-link" href="index.html?cat=all" data-category="all">Shop</a>
+            <a class="nav-link" href="index.html?cat=travel" data-category="travel">Travel</a>
+            <a class="nav-link" href="index.html?cat=work" data-category="work">Work</a>
+            <a class="nav-link" href="index.html?cat=outdoor" data-category="outdoor">Outdoor</a>
+        </nav>
+
+        <div class="search-wrap" role="search">
+            <input type="text" id="search" placeholder="Search and press Enter..." autocomplete="off" />
+            <img src="assets/search.png" alt="" class="search" />
+        </div>
+
+        <div class="header-actions">
+            <button class="icon-btn wishlist-btn" id="wishlistBtn" aria-label="Wishlist">
+                <img src="assets/heart.png" alt="" />
+                <span class="count-badge" id="wishlistCount" aria-label="Wishlist items">0</span>
+            </button>
+
+            <button class="icon-btn cart-btn" id="cartBtn" aria-label="Cart">
+                <img src="assets/shopping-cart.png" alt="" />
+                <span class="count-badge" id="cartCount" aria-label="Cart items">0</span>
+            </button>
+
+            <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+                <img id="themeIcon" src="assets/moon.png" alt="" />
+            </button>
+
+            <button class="icon-btn" aria-label="Account">
+                <img src="assets/circle-user.png" alt="" />
+            </button>
+        </div>
+    </header>
+
+    <aside class="drawer" id="drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="drawer-title">Menu</span>
+            <button class="icon-btn drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+        </div>
+        <a href="index.html?cat=all" class="drawer-link" data-category="all">All Bags</a>
+        <a href="index.html?cat=travel" class="drawer-link" data-category="travel">Travel</a>
+        <a href="index.html?cat=work" class="drawer-link" data-category="work">Work</a>
+        <a href="index.html?cat=outdoor" class="drawer-link" data-category="outdoor">Outdoor</a>
+        <div class="drawer-divider"></div>
+        <a href="cart.html" class="drawer-link">Cart</a>
+        <a href="#" class="drawer-link">Support</a>
+    </aside>
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+        <div class="cart-drawer-header">
+            <div>
+                <div class="cart-title">Your cart</div>
+                <div class="muted" id="cartDrawerMeta">0 items</div>
+            </div>
+            <button class="icon-btn cart-close" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartDrawerItems"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-row">
+                <span class="muted">Subtotal</span>
+                <strong id="cartDrawerSubtotal">₹0</strong>
+            </div>
+            <div class="cart-actions">
+                <a class="btn ghost" href="cart.html">View cart</a>
+                <a class="btn buy-now" href="cart.html#checkout">Checkout</a>
+            </div>
+        </div>
+    </aside>
+    <div class="cart-backdrop" id="cartBackdrop" hidden></div>
+
+    <aside class="wishlist-drawer" id="wishlistDrawer" aria-hidden="true">
+        <div class="wishlist-drawer-header">
+            <div>
+                <div class="cart-title">Your wishlist</div>
+                <div class="muted" id="wishlistDrawerMeta">0 items</div>
+            </div>
+            <button class="icon-btn cart-close" id="wishlistCloseBtn" aria-label="Close wishlist">&times;</button>
+        </div>
+        <div class="cart-items" id="wishlistDrawerItems"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-row">
+                <span class="muted">Tip</span>
+                <strong>Tap “Add to cart” to buy</strong>
+            </div>
+            <div class="cart-actions">
+                <a class="btn ghost" href="index.html">Continue shopping</a>
+                <a class="btn buy-now" href="cart.html">Go to cart</a>
+            </div>
+        </div>
+    </aside>
+    <div class="wishlist-backdrop" id="wishlistBackdrop" hidden></div>
+
+    <main class="page">
+        <section class="breadcrumbs">
+            <a class="muted" href="index.html">Shop</a>
+            <span class="muted">/</span>
+            <span id="crumbTitle" class="muted">Product</span>
+        </section>
+
+        <section class="product-page" id="productPage" aria-label="Product details">
+            <!-- Filled by script.js -->
+        </section>
+
+        <section class="catalog" aria-label="You may also like">
+            <div class="section-head">
+                <div>
+                    <h2>You may also like</h2>
+                    <p class="muted">More picks from CarryOn</p>
+                </div>
+            </div>
+            <div id="relatedGrid" class="shopping-grid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h4>About CarryOn</h4>
+                <p>Thoughtfully designed bags for workdays, weekends, and everywhere in between.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Shop</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact</h4>
+                <p>Email: support@carryon.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year">2026</span> CarryOn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
