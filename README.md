@@ -86,7 +86,7 @@ This project is open-source and available under the MIT License.
 
 ## 👤 Author
 
-**Adhiraj Vaishya**
+**Aditya Vaishya**
 GitHub: [aadi-vaishya18](https://github.com/aadi-vaishya18)
 
 ---
